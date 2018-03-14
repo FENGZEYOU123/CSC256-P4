@@ -24,18 +24,19 @@
                .word 2321
 .text
 
-# sum            --> $s0
-# size           --> $s1
-# rev            --> $s2
-# num            --> $s3
-# isPalindrome   --> $s4
-# address of arr --> $s5
-# i              --> $s6
-# beg            --> $s7
-# end            --> $s8
-# d              --> $t0
-# 10             --> $t1
-# 100            --> $t3
+# sum              --> $s0
+# size             --> $s1
+# adress of sumarr --> $s2
+# rev              --> $s3
+# num              --> $s4
+# isPalindrome     --> $s5
+# address of arr   --> $s6
+# i                --> $t0
+# beg              --> $s7
+# end              --> $s8
+# d                --> $t1
+# 10               --> $t2
+# 100              --> $t3
 main:
 
 exit:
