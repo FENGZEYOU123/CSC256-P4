@@ -3,15 +3,6 @@
     sumlbl:    .asciiz  "Sum: " # label for sum
     revlbl:    .asciiz  "Reversed Number: " # label for rev
     pallbl:    .asciiz  "Is Palindrome: " # label for isPalindrome
-    arr:       .word 1
-               .word 2
-               .word 3
-               .word 4
-               .word 5
-               .word 4
-               .word 3
-               .word 2
-               .word 1
     sumarr:    .word 1
                .word 3
                .word 44
@@ -22,18 +13,27 @@
                .word 232
                .word 4325
                .word 2321
+    arr:       .word 1
+               .word 2
+               .word 3
+               .word 4
+               .word 5
+               .word 4
+               .word 3
+               .word 2
+               .word 1
+
 .text
 
 # sum              --> $s0
-# size             --> $s1
-# adress of sumarr --> $s2
-# rev              --> $s3
-# num              --> $s4
-# isPalindrome     --> $s5
-# address of arr   --> $s6
+# adress of sumarr --> $s1
+# rev              --> $s2
+# num              --> $s3
+# isPalindrome     --> $s4
+# address of arr   --> $s5
 # i                --> $t0
-# beg              --> $s7
-# end              --> $s8
+# beg              --> $s6
+# end              --> $s7
 # d                --> $t1
 # 10               --> $t2
 # 100              --> $t3
