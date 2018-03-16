@@ -25,18 +25,18 @@
 
 .text
 
-# sum              --> $s0
-# adress of sumarr --> $s1
-# rev              --> $s2
-# num              --> $s3
-# isPalindrome     --> $s4
-# address of arr   --> $s5
-# i                --> $t0
-# beg              --> $s6
-# end              --> $s7
-# d                --> $t1
-# 10               --> $t2
-# 100              --> $t3
+# sum               --> $s0
+# address of sumarr --> $s1
+# rev               --> $s2
+# num               --> $s3
+# isPalindrome      --> $s4
+# address of arr    --> $s5
+# i                 --> $t0
+# beg               --> $s6
+# end               --> $s7
+# d                 --> $t1
+# 10                --> $t2
+# 100               --> $t3
 main:
 
 exit:
