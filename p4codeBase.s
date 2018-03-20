@@ -56,7 +56,7 @@ exit:
   addi $v0, $0, 4     # puts 4 in v0 which denotes we are printing an string
   syscall             # make a syscall to system
 
-  move $a0, $s1       # puts rev into arg0 (a0 register) for cout
+  move $a0, $s2       # puts rev into arg0 (a0 register) for cout
   addi $v0, $0, 1     # puts 1 in v0 to denote we are printing an int
   syscall             # make a syscall to system
 
@@ -68,7 +68,7 @@ exit:
   addi $v0, $0, 4     # puts 4 in v0 which denotes we are printing a string
   syscall             # make a syscall to system
 
-  move $a0, $s3       # puts isPalindrome into arg0 (a0 register) for cout
+  move $a0, $s4       # puts isPalindrome into arg0 (a0 register) for cout
   addi $v0, $0, 1     # puts 1 in v0 to denote we are printing an int
   syscall             # make a syscall to system
 
