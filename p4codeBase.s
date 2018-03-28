@@ -42,6 +42,7 @@ main:
     li $s0, 0       #int sum = 0;
     li $s5, 1       #int i = 1
     li $t3, 100
+    li $t1, 10
 loop:
     bge $s5, $t3, loop2        #i <= 100
     add $s0, $s0, $s5          #sum = sum + i
@@ -51,7 +52,6 @@ loop:
     li $s2, 45689   #int num = 45689
     li $s1, 0       #int rev = 0
     li $t0, -1      #int d = -1
-    li $t1, 10
     ble $s2, 0, loop3   #( num > 0)
 loop2:
 
