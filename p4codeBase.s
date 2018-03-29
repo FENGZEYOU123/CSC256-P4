@@ -40,8 +40,8 @@
 
 main:
     li $s0, 0       # int sum = 0
-    li $t1, 10      # int size = 10  
-    li $s5, 1       # int i = 1
+    li $t2, 10      # int size = 10  
+    li $t0, 1       # int i = 1
     li $t3, 100
 
 loop:
