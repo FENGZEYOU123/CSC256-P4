@@ -53,10 +53,10 @@ loop:
     li $s3, 45689   #int num = 45689
     li $s2, 0       #int rev = 0
     li $t1, -1      #int d = -1
-  
+ 
     ble $s3, 0, loop3   #( num > 0)
 loop2:
-
+    li $t2, 10         
     rem $t1, $s3, $t2   #d = num % 10
 
     mul $t4, $s2, $t2   # store in t4 rev*10
