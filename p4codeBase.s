@@ -39,15 +39,19 @@
 # 100               --> $t3
 
 main:
-    li $s0, 0       # int sum = 0
-    li $t3, 100
-    li $t2, 10      # size = 10
-    li $t0, 0
-loop:
-    bgl $t0, $t2, endl     # if i >=size
-    addi $t0, $t0, 1   # then i++
-    j loop
-    endl
+   li $s0, 0
+   la $s1, sumarr
+   li $t0, 0
+  
+   FOR:   beq $t0, 10, END
+       sll $t1, $t0, 2       # indexable i
+       add $t1, $t1, $s1
+       lw $t1, 0($t1)
+       add $s0, $s0, $t1
+       addi $t0, $t0, 1
+       j FOR
+   END:
+   
 exit:
   la   $a0, sumlbl    # puts sumlbl into arg0 (a0 register) for cout
   addi $v0, $0, 4     # puts 4 in v0 which denotes we are printing a string
