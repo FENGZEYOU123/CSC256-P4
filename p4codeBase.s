@@ -3,16 +3,6 @@
     sumlbl:    .asciiz  "Sum: " # label for sum
     revlbl:    .asciiz  "Reversed Number: " # label for rev
     pallbl:    .asciiz  "Is Palindrome: " # label for isPalindrome
-    sumarr:    .word 1
-               .word 3
-               .word 44
-               .word 66
-               .word 88
-               .word 90
-               .word 9
-               .word 232
-               .word 4325
-               .word 2321
     arr:       .word 1
                .word 2
                .word 3
@@ -22,49 +12,69 @@
                .word 3
                .word 2
                .word 1
-
 .text
 
-# sum               --> $s0
-# address of sumarr --> $s1
-# rev               --> $s2
-# num               --> $s3
-# isPalindrome      --> $s4
-# address of arr    --> $s5
-# i                 --> $t0
-# beg               --> $s6
-# end               --> $s7
-# d                 --> $t1
-# 10                --> $t2
-# 100               --> $t3
-
+# sum            --> $s0
+# rev            --> $s1
+# num            --> $s2
+# isPalindrome   --> $s3
+# address of arr --> $s4
+# i              --> $s5
+# beg            --> $s6
+# end            --> $s7
+# d              --> $t0
+# 10             --> $t1
+# 100            --> $t3
 main:
-   li $s0, 0        # sum=0
-   la $s1, sumarr   # load sumarr to S1
-   li $t0, 0        # i=0
-   li $s2, 0        # rev=0
-   li $s3, 45689    # num=45689
-   li $t1, -1       # d=-1
-   li $t2, 10       # $st=10
-   
-   Loop:   beq $t0, 10, EndLoop
-       sll $t1, $t0, 2       # indexable i
-       add $t1, $t1, $s1
-       lw $t1, 0($t1)
-       add $s0, $s0, $t1
-       addi $t0, $t0, 1
-       j Loop
-   EndLoop:
+    li $s0, 0       #int sum = 0;
+    li $s5, 1       #int i = 1
+    li $t3, 100
+    li $t1, 10
+loop:
+    bge $s5, $t3, loop2        #i <= 100
+    add $s0, $s0, $s5          #sum = sum + i
+    addi $s5, $s5, 1           #i++
+    j loop
 
-LoopTwo：
-       ble $s3, $t0, EndLoopTwo #if num <=0
-       rem $t1, $s3, $t2        # d=num%10
-       mul $s2, $s2, $t2        # rev=rev*10
-       addi $s2, $s2, $t1       # rev=rev+d
-       div $s3, $s3, $t2        # num/10
-j LoopTwo
-EndLoopTwo:
+    li $s2, 45689   #int num = 45689
+    li $s1, 0       #int rev = 0
+    li $t0, -1      #int d = -1
 
+    ble $s2, 0, loopThree   #( num > 0)
+loopTwo:
+
+    rem $t0, $s2, $t1   #d = num % 10
+
+    mul $t4, $s1, $t1   # store in t4 rev*10
+    add $s1, $t4, $t0   #rev = rev*10 + d
+    div $s2, $s2, $t1   #num = num / 10
+    j loopTwo
+
+    li $s6, 0       #int beg = 0
+    li $s7, 8       #int end = 8
+    li $s3, 1       #int isPalindrome = 1
+    la $s4, arr     #address for array
+
+    bge $s6,$s7, exit #while(beg < end)
+
+loopThree:
+
+    lw $s6, 0
+    lw $s7, 8
+    sll $t5, $s6, 4
+    add $t5, $t5, $s4
+    lw $t6, 0($t5)
+
+    sll $t7, $s7, 4
+    add $t7, $t7, $s4
+    lw $t8, 0($t7)
+
+    ble $t6, $t8,if    # if (arr[beg] != arr[end]){
+    li $s3, -1
+    j loopThree
+if:
+    addi $s6, $s6, 1
+    addi $s7, $s7, -1
    
 exit:
   la   $a0, sumlbl    # puts sumlbl into arg0 (a0 register) for cout
