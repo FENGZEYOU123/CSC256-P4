@@ -53,7 +53,7 @@ main:
    li $t2, 10       # $st=10
   
 Loop:  
-       blt $t0, 10, EndLoop     #if i>=0 then endloop
+       beq $t0, $t2, EndLoop     #if i>=0 then endloop
        sll $t3, $t0, 2      
        add $t3, $t3, $s1
        lw $t3, 0($t3)
