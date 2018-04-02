@@ -43,14 +43,15 @@ main:
    la $s1, sumarr
    li $t0, 0
   
-   FOR:   beq $t0, 10, END
-       sll $t1, $t0, 2       # indexable i
-       add $t1, $t1, $s1
-       lw $t1, 0($t1)
-       add $s0, $s0, $t1
-       addi $t0, $t0, 1
-       j FOR
-   END:
+   Loop:  beq $t0, 10, EndLoop
+          sll $t1, $t0, 2       
+          add $t1, $t1, $s1
+          lw $t1, 0($t1)
+          add $s0, $s0, $t1
+          addi $t0, $t0, 1
+   J Loop
+       
+   EndLoop:
    
 exit:
   la   $a0, sumlbl    # puts sumlbl into arg0 (a0 register) for cout
