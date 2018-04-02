@@ -47,14 +47,14 @@ main:
    li $t1, -1       # d=-1
    li $t2, 10       # $st=10
    
-   Loop1:   beq $t0, 10, EndLoop1
+   Loop:   beq $t0, 10, EndLoop
        sll $t1, $t0, 2       # indexable i
        add $t1, $t1, $s1
        lw $t1, 0($t1)
        add $s0, $s0, $t1
        addi $t0, $t0, 1
-       j Loop1
-   EndLoop1:
+       j Loop
+   EndLoop:
 
 
    
