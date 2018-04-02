@@ -42,12 +42,13 @@ main:
    li $s0, 0
    la $s1, sumarr
    li $t0, 0
-  
-   Loop:  beq $t0, 10, EndLoop
-          sll $t1, $t0, 2       
-          add $t1, $t1, $s1
-          lw $t1, 0($t1)
-          add $s0, $s0, $t1
+ 
+   Loop:  
+          beq $t0, 10, EndLoop  #if i >=0
+          sll $t4, $t0, 2       
+          add $t4, $t4, $s1
+          lw $t4, 0($41)
+          add $s0, $s0, $41
           addi $t0, $t0, 1
    j Loop
        
