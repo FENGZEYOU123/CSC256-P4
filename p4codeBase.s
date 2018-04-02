@@ -49,7 +49,7 @@ main:
           lw $t1, 0($t1)
           add $s0, $s0, $t1
           addi $t0, $t0, 1
-   J Loop
+   j Loop
        
    EndLoop:
    
