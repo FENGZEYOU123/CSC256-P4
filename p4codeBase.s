@@ -53,7 +53,7 @@ main:
    li $t2, 10       # $st=10
   
 Loop:  
-       beq $t0, $t2, EndLoop     #if i>=0 then endloop
+       beq $t0, $t2, EndLoop     #if i=10 then endloop
        sll $t3, $t0, 2      
        add $t3, $t3, $s1
        lw $t3, 0($t3)
@@ -66,7 +66,7 @@ LoopTwo:
        ble $s3, $t0, EndLoopTwo # if num<=0
        rem $t1, $s3, $t2        # d=num%10
        mul $s2, $s2, $t2        # rev=rev*10
-       addu $s2, $s2, $t1            # rev=rev+d
+       addu $s2, $s2, $t1       # rev=rev+d
        
        div $s3, $s3, $t2        # num/10
 j LoopTwo
