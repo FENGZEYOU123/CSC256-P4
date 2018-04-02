@@ -42,7 +42,7 @@ loop:
     
     ble $s2, 0, loop3   #( num > 0)
 loop2:
-
+    bge $s6,$s7, exits #while(beg < end)
     rem $t0, $s2, $t1   #d = num % 10
 
     mul $t4, $s1, $t1   # store in t4 rev*10
@@ -55,7 +55,7 @@ loop2:
     li $s3, 1       #int isPalindrome = 1
     la $s4, arr     #address for array
 
-    bge $s6,$s7, exits #while(beg < end)
+
 
 loop3:
 
