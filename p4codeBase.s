@@ -54,7 +54,7 @@ main:
        add $s0, $s0, $t1
        addi $t0, $t0, 1
        j Loop1
-   END:
+   EndLoop1:
 
 
    
