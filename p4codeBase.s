@@ -66,7 +66,8 @@ LoopTwo:
        ble $s3, $t0, EndLoopTwo # if num<=0
        rem $t1, $s3, $t2        # d=num%10
        mul $s2, $s2, $t2        # rev=rev*10
-       addi $s2, $s2, $t1       # rev=rev+d
+       addi $s2, $s2, $t1            # rev=rev+d
+       
        div $s3, $s3, $t2        # num/10
 j LoopTwo
 EndLoopTwo:
