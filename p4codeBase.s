@@ -56,14 +56,6 @@ main:
 j Loop1     
 EndLoop1:
 
-Loop2：
-       ble $s3, $t0, EndLoop2 #if num <=0
-       rem $t1, $s3, $t2        # d=num%10
-       mul $s2, $s2, $t2        # rev=rev*10
-       addi $s2, $s2, $t1       # rev=rev+d
-       div $s3, $s3, $t2        # num/10
-j Loop2
-EndLoop2:
    
 exit:
   la   $a0, sumlbl    # puts sumlbl into arg0 (a0 register) for cout
