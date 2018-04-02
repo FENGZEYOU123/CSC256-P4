@@ -74,10 +74,10 @@ EndLoopTwo:
        
 LoopThree:
        bge $s6, $s7, EndLoopThree #if s6 >= s7
-       sll $t4, $s6, 8
+       sll $t4, $s6, 2
        add $t4, $t4, $s5
        lw $t4, 0($t4)
-         sll $t5, $s7, 8
+         sll $t5, $s7, 2
        add $t5, $t5, $s5
        lw $t5, 0($t5)
        
