@@ -42,17 +42,16 @@ main:
    li $s0, 0
    la $s1, sumarr
    li $t0, 0
- 
-   Loop:  
-          beq $t0, 10, EndLoop  #if i >=0
-          sll $t4, $t0, 2       
-          add $t4, $t4, $s1
-          lw $t4, 0($41)
-          add $s0, $s0, $41
-          addi $t0, $t0, 1
-   j Loop
+ Loop:  
+       beq $t0, 10, EndLoop  #if i >=0
+       sll $t2, $t0, 2       # indexable i
+       add $t2, $t2, $s1
+       lw $t2, 0($t2)
+       add $s0, $s0, $t2
+       addi $t0, $t0, 1
+j Loop
        
-   EndLoop:
+EndLoop:
    
 exit:
   la   $a0, sumlbl    # puts sumlbl into arg0 (a0 register) for cout
