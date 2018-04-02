@@ -62,7 +62,7 @@ Loop:
        j Loop
 EndLoop:
 
-LoopTwo：
+LoopTwo:
        ble $s3, $t0, EndLoopTwo # if num<=0
        rem $t1, $s3, $t2        # d=num%10
        mul $s2, $s2, $t2        # rev=rev*10
