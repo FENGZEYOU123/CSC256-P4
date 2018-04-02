@@ -47,7 +47,7 @@ main:
    li $t1, -1       # d=-1
    li $t2, 10       # $st=10
  Loop1:  
-       bge $t0, 10, EndLoop1  #if i >=0 endloop
+       beq $t0, 10, EndLoop1  #if i =0 endloop
        sll $t4, $t0, 2       # indexable i
        add $t4, $t4, $s1
        lw  $t4, 0($t4)
