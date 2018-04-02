@@ -39,25 +39,25 @@ loop:
     li $s2, 45689   #int num = 45689
     li $s1, 0       #int rev = 0
     li $t0, -1      #int d = -1
-
-    ble $s2, 0, loopThree   #( num > 0)
-loopTwo:
+    
+    ble $s2, 0, loop3   #( num > 0)
+loop2:
 
     rem $t0, $s2, $t1   #d = num % 10
 
     mul $t4, $s1, $t1   # store in t4 rev*10
     add $s1, $t4, $t0   #rev = rev*10 + d
     div $s2, $s2, $t1   #num = num / 10
-    j loopTwo
+    j loop2
 
     li $s6, 0       #int beg = 0
     li $s7, 8       #int end = 8
     li $s3, 1       #int isPalindrome = 1
     la $s4, arr     #address for array
 
-    bge $s6,$s7, exit #while(beg < end)
+    bge $s6,$s7, exits #while(beg < end)
 
-loopThree:
+loop3:
 
     lw $s6, 0
     lw $s7, 8
@@ -71,10 +71,12 @@ loopThree:
 
     ble $t6, $t8,if    # if (arr[beg] != arr[end]){
     li $s3, -1
-    j loopThree
+    j loop3
 if:
     addi $s6, $s6, 1
     addi $s7, $s7, -1
+
+exits:
    
 exit:
   la   $a0, sumlbl    # puts sumlbl into arg0 (a0 register) for cout
