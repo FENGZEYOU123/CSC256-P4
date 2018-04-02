@@ -81,7 +81,7 @@ LoopThree:
        add $t5, $t5, $s5
        lw $t5, 0($t5)
        
-       bne $t4, $t5, then   arr[beg] not equals arr [end]
+       bne $t4, $t5, then  # arr[beg] not equals arr [end]
 addi    $s6,$s6,1
 addi    $s7,$s7,-1
 j LoopThree
