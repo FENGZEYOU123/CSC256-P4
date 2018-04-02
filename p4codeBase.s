@@ -53,7 +53,7 @@ main:
    li $t2, 10       # $st=10
   
 Loop:  
-       beq $t0, 10, EndLoop
+       blt $t0, 10, EndLoop     if i>=0 then endloop
        sll $t3, $t0, 2      
        add $t3, $t3, $s1
        lw $t3, 0($t3)
@@ -73,15 +73,15 @@ j LoopTwo
 EndLoopTwo:
        
 LoopThree:
-       bge $s6, $s7, EndLoopThree #if s6 >= s7
+       bge $s6, $s7, EndLoopThree  #if s6 >= s7
        sll $t4, $s6, 2
        add $t4, $t4, $s5
        lw $t4, 0($t4)
-         sll $t5, $s7, 2
+       sll $t5, $s7, 2
        add $t5, $t5, $s5
        lw $t5, 0($t5)
        
-       bne $t4, $t5, then  # arr[beg] not equals arr [end]
+        bne $t4, $t5, then  # arr[beg] not equals arr [end]
 addi    $s6,$s6,1
 addi    $s7,$s7,-1
 j LoopThree
